@@ -1,14 +1,9 @@
-/* eslint-disable no-case-declarations */
-/* eslint-disable @typescript-eslint/restrict-plus-operands */
+/* eslint-disable @typescript-eslint/object-curly-spacing */
 /* eslint-disable @typescript-eslint/indent */
+/* eslint-disable @typescript-eslint/restrict-plus-operands */
 import http from 'http';
 import url from 'url';
-import { addCountry } from './countrys';
-import * as dotenv from 'dotenv';
 
-dotenv.config();
-
-// eslint-disable-next-line @typescript-eslint/naming-convention
 const PORT = process.env.PORT || '4300';
 
 const server = http.createServer((req, resp) => {
@@ -19,19 +14,18 @@ const server = http.createServer((req, resp) => {
         return;
       }
 
+      // eslint-disable-next-line no-case-declarations
       const { pathname } = url.parse(req.url);
-
-      resp.write('hello world: estos son tus datos de' + pathname);
+      resp.write('Hello world: estos son tus datos de ' + pathname);
       break;
     case 'POST':
-      addCountry({});
       break;
     case 'PATCH':
     case 'DELETE':
-      resp.write('Hello world: de momento no está implementado ' + req.method);
+      resp.write('Hello world, de momento no esta implementado ' + req.method);
       break;
     default:
-      resp.write('Hello world: no conozco el método ' + req.method);
+      resp.write('Hello world, no conozco el método ' + req.method);
       break;
   }
 
@@ -41,4 +35,5 @@ const server = http.createServer((req, resp) => {
 server.on('listening', () => {
   console.log('Listening in http://localhost:' + PORT);
 });
+
 server.listen(PORT);
