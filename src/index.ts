@@ -40,11 +40,11 @@ const server = http.createServer((req, resp) => {
   resp.writeHead(200, { 'Content-Type': 'text/html' });
   resp.write(`<h1>Calculadora</h1>
   <h3>Resultados:</h2>
-   <p>${num1} + ${num2} = ${answers.sum}</p>
-   <p>${num1} - ${num2} = ${answers.rest}</p>
+    <p>${num1} + ${num2} = ${answers.sum}</p>
+    <p>${num1} - ${num2} = ${answers.rest}</p>
     <p>${num1} * ${num2} = ${answers.mult}</p>
       <p>${num1} / ${num2} = ${answers.div}</p>
-   `);
+    `);
 
   resp.end();
 });
